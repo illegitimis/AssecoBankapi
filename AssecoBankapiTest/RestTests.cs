@@ -97,13 +97,13 @@ namespace AssecoBankapi
 
         using (var response = await httpClient.GetAsync(identityMe))
         {
+          // fails UNAUTHORIZED
           ActOnResponse(response);
-
+                   
           string jsonResponse = await response.Content.ReadAsStringAsync();
-          var connectToken = JsonConvert.DeserializeObject<DAL.ConnectToken>(jsonResponse);
-          Assert.IsNotNull(connectToken);
-          Assert.AreEqual(connectToken.ExpiresIn, 3600);
-          Assert.AreEqual(connectToken.TokenType, "Bearer");
+          var identityMe = JsonConvert.DeserializeObject<DAL.IdentityMe>(jsonResponse);
+          Assert.IsNotNull(identityMe);
+          // TODO
         }
       }
     }

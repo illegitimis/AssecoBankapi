@@ -1,6 +1,6 @@
 ﻿
 
-namespace AssecoBankapiTest.DAL
+namespace AssecoBankapi.DAL
 {
   using System;
   using System.Collections.Generic;
